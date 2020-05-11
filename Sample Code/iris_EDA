@@ -1,0 +1,31 @@
+#Load raw data iris into and assign to iris variable
+library(RCurl)
+iris<-read.csv(text=getURL("https://raw.githubusercontent.com/Hongyanlee0614/R/master/Data%20Sets/iris"))
+
+#View the dataset in new tab, in a beautiful table
+view(iris)
+
+#select the column sepal length and assign to sepal_length
+sepal_lengthiris$Sepal.Length
+
+#Display the first and last 4 rows in the data set
+head(iris,4)
+tail(iris,4)
+
+#Give the output of number of rows and columns in the data set as vector
+dim(iris)
+
+#Look at the summary statistic using summary()
+summary(iris)
+summary(iris$Sepal.Length)
+
+#To see if there is any missing data
+sum(is.na(iris))
+
+#provide a better summary of the iris data set
+library(skimr)
+skim(iris)
+
+#group data by species then perform skim
+iris %>% dplyr::group_by(Species) %>%
+  skim()
