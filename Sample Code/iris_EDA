@@ -29,3 +29,21 @@ skim(iris)
 #group data by species then perform skim
 iris %>% dplyr::group_by(Species) %>%
   skim()
+
+
+#Visualization
+#make the points red in colour
+plot(iris,col='red')
+
+#make a scatter plot based on 2 features(become x and y value)
+plot(iris$Sepal.Length,iris$Sepal.Width, col="blue")
+
+#make a scatter plot with labels
+plot(iris$Sepal.Width,iris$Sepal.Length, col="green", xlab="Sepal Width", ylab="Sepal Length")
+
+#make a histogram based on 1 feature
+hist(iris$Sepal.Length,xlab="Sepal Length")
+
+#boxplot
+library(caret)
+featurePlot(x=iris[,1:4],y=iris$Species,plot="box",strip=strip.custom(par.strip.text=list(cex=.7)),scales=list(x=list(relation="free"),y=list(relation="free")))
